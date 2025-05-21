@@ -3,6 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from PIL import Image
 import io
 
+from model import predict
+
+
 app = FastAPI()
 
 app.add_middleware(
@@ -16,12 +19,13 @@ app.add_middleware(
 @app.post("/predict")
 async def predict_image(file: UploadFile = File(...)):
     contents = await file.read()
-    image = Image.open(io.BytesIO(contents))
+    image = Image.open(io.BytesIO(contents)).convert("RGB")
 
-    # Run your model here (dummy output below)
+    label, confidence = predict(image)
+
     result = {
-        "is_ai_generated": True,
-        "confidence": 0.86,
+        "predicted_class": label,
+        "confidence": confidence,
     }
 
     return result
