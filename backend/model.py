@@ -6,8 +6,8 @@ from networks.architecture import SupConEfficientNet, SupConResNet, LinearClassi
 
 # ===== CONFIGURATION =====
 CONFIG = {
-    "encoder_weights_path": "/weights/supcon_efficientnetb3.pth",
-    "classifier_weights_path": "/weights/classifier.pth",
+    "encoder_weights_path": "./weights/supcon_efficientnetb3.pth",
+    "classifier_weights_path": "./weights/classifier.pth",
     "device": "mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu",
     "image_size": 300,
 }

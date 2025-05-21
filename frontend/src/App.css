@@ -112,3 +112,51 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
+
+.result-card {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 12px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.result-badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.8rem;
+}
+
+.result-badge.ai {
+  background-color: #d32f2f; /* red */
+}
+
+.result-badge.human {
+  background-color: #2e7d32; /* green */
+}
+
+.result-confidence {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid #888;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+  margin: 1rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

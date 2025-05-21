@@ -5,6 +5,9 @@ import './App.css';
 function App() {
   const [image, setImage] = useState(null);
   const [previewURL, setPreviewURL] = useState(null);
+  const [result, setResult] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
 
   const onDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
@@ -30,6 +33,8 @@ function App() {
       return;
     }
 
+    setIsLoading(true);
+
     const formData = new FormData();
     formData.append("file", image);
 
@@ -41,10 +46,16 @@ function App() {
 
       const result = await response.json();
       console.log("Prediction result:", result);
-      alert(`AI Generated: ${result.is_ai_generated}\nConfidence: ${result.confidence}`);
+
+      setResult({
+        predicted_class: result.predicted_class,
+        confidence: result.confidence,
+      });
     } catch (err) {
       console.error("Upload failed", err);
       alert("Upload failed");
+    } finally {
+      setIsLoading(false);
     }
 
   };
@@ -69,8 +80,25 @@ function App() {
         </div>
       )}
 
+      {isLoading && <div className="spinner"></div>}
+
+      {result && (
+        <div className="result-card">
+          <div
+            className={`result-badge ${result.predicted_class === 1 ? "ai" : "human"}`}
+          >
+            {result.predicted_class === 1 ? "AI-generated" : "Human-generated"}
+          </div>
+          <div className="result-confidence">
+            Confidence: {(result.confidence * 100).toFixed(2)}%
+          </div>
+        </div>
+      )}
+
       <form onSubmit={handleSubmit} style={{ marginTop: "1.5rem" }}>
-        <button type="submit">Upload Image</button>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Processing..." : "CHECK IMAGE"}
+        </button>
       </form>
     </div>
   );
