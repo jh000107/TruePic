@@ -6,7 +6,9 @@ function App() {
   const [image, setImage] = useState(null);
   const [previewURL, setPreviewURL] = useState(null);
   const [result, setResult] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isChecking, setIsChecking] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
+  const [similarImages, setSimilarImages] = useState([]);
 
 
   const onDrop = useCallback((acceptedFiles) => {
@@ -23,17 +25,13 @@ function App() {
     multiple: false,
   });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log("Ready to upload:", image);
-    // Upload logic will go here
-
+  const handleSubmit = async () => {
     if (!image) {
-      alert("Please select an image before submitting.");
+      alert("Please select an image.");
       return;
     }
 
-    setIsLoading(true);
+    setIsChecking(true);
 
     const formData = new FormData();
     formData.append("file", image);
@@ -55,9 +53,51 @@ function App() {
       console.error("Upload failed", err);
       alert("Upload failed");
     } finally {
-      setIsLoading(false);
+      setIsChecking(false);
     }
 
+  };
+
+  const handleReverseImageSearch = async () => {
+    if (!image) {
+      alert("Please select an image.");
+      return;
+    }
+
+    setIsSearching(true);
+    const formData = new FormData();
+    formData.append("file", image);
+
+    try {
+      // Step 1: Upload to ImgBB
+      const uploadRes = await fetch("http://localhost:8000/upload-imgbb", {
+        method: "POST",
+        body: formData,
+      });
+
+      const uploadData = await uploadRes.json();
+      if (!uploadData.url) {
+        alert("Failed to upload to ImgBB.");
+        return;
+      }
+
+      // Step 2: Send the URL to the backend for reverse search
+      const urlForm = new FormData();
+      urlForm.append("url", uploadData.url);
+
+      const searchRes = await fetch("http://localhost:8000/google-reverse-search", {
+        method: "POST",
+        body: urlForm,
+      });
+
+      const data = await searchRes.json();
+      setSimilarImages(data.results || []);
+    } catch (error) {
+      console.error("Reverse image search failed:", error);
+      alert("An error occurred.");
+    } finally {
+      setIsSearching(false);
+    }
   };
 
   return (
@@ -73,14 +113,22 @@ function App() {
         )}
       </div>
 
+      <div className="button-group">
+        <button onClick={handleSubmit} disabled={isChecking || isSearching}>
+          {isChecking ? <span className="spinner"></span> : "Check Image"}
+        </button>
+        
+        <button onClick={handleReverseImageSearch} disabled={isChecking || isSearching}>
+          {isSearching ? <span className="spinner"></span> : "Find Similar Images"}
+        </button>
+      </div>
+
       {previewURL && (
         <div style={{ marginTop: "1rem" }}>
           <p>Preview:</p>
           <img src={previewURL} alt="preview" className="preview"/>
         </div>
       )}
-
-      {isLoading && <div className="spinner"></div>}
 
       {result && (
         <div className="result-card">
@@ -95,11 +143,26 @@ function App() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} style={{ marginTop: "1.5rem" }}>
-        <button type="submit" disabled={isLoading}>
-          {isLoading ? "Processing..." : "CHECK IMAGE"}
-        </button>
-      </form>
+      {similarImages.length > 0 && (
+        <div className="similar-images-section">
+          <h3>Similar Images</h3>
+          <div className="similar-images-container">
+            {similarImages.map((img, idx) => (
+              <div key={idx} className="similar-image-card">
+                <a href={img.source_url} target="_blank" rel="noopener noreferrer">
+                  <img src={img.url} alt={`Similar ${idx}`} className="similar-image" />
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+
+
+
+
+
     </div>
   );
 }
