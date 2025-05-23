@@ -1,0 +1,47 @@
+.home-container {
+  text-align: center;
+  padding: 3rem 1rem;
+  max-width: 700px;
+  margin: auto;
+}
+
+.home-title {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.home-description {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+.home-preview-box {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.home-sample-image {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.home-try-button {
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.1rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.home-try-button:hover {
+  background-color: #388e3c;
+}

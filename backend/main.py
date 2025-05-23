@@ -92,7 +92,7 @@ def selenium_reverse_image_search(image_url, max_results=5):
     
     try:
         # Navigate to Google Images
-        driver.get("https://www.google.com/imghp?hl=en&gl=us")
+        driver.get("https://images.google.com/")
 
         # Find and click the camera icon for reverse search
         camera_button = WebDriverWait(driver, 10).until(
