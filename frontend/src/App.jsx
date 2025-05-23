@@ -132,13 +132,49 @@ function App() {
 
       {result && (
         <div className="result-card">
-          <div
-            className={`result-badge ${result.predicted_class === 1 ? "ai" : "human"}`}
-          >
-            {result.predicted_class === 1 ? "AI-generated" : "Human-generated"}
-          </div>
-          <div className="result-confidence">
-            Confidence: {(result.confidence * 100).toFixed(2)}%
+          <div className="confidence-gauge">
+            <svg viewBox="0 0 180 100" className="gauge-svg">
+              <defs>
+                <linearGradient id="gaugeGradientAI" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#f88" />
+                  <stop offset="100%" stopColor="#d32f2f" />
+                </linearGradient>
+
+                <linearGradient id="gaugeGradientHuman" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#8bc34a" />
+                  <stop offset="100%" stopColor="#2e7d32" />
+                </linearGradient>
+              </defs>
+
+              {/* Base arc (grey background) */}
+              <path
+                d="M10,90 A80,80 0 0,1 170,90"
+                stroke="#333"
+                strokeWidth="20"
+                fill="none"
+              />
+
+              {/* Colored arc */}
+              <path
+                d="M10,90 A80,80 0 0,1 170,90"
+                stroke={`url(#${result.predicted_class === 1 ? "gaugeGradientAI" : "gaugeGradientHuman"})`}
+                strokeWidth="20"
+                fill="none"
+                strokeDasharray="252"
+                strokeDashoffset={`${252 - 252 * result.confidence}`}
+                style={{ transition: "stroke-dashoffset 0.6s ease-in-out", filter: "drop-shadow(0 0 6px rgba(255,255,255,0.3))" }}
+              />
+
+              {/* Percentage */}
+              <text x="90" y="60" textAnchor="middle" fontSize="18" fill="#fff" fontWeight="bold">
+                {(result.confidence * 100).toFixed(0)}%
+              </text>
+
+              {/* Label */}
+              <text x="90" y="80" textAnchor="middle" fontSize="14" fill="#ccc">
+                {result.predicted_class === 1 ? "AI" : "Human"}
+              </text>
+            </svg>
           </div>
         </div>
       )}
