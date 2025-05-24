@@ -93,7 +93,7 @@ function MainApp() {
   });
 
   return (
-    <>
+    <div className="main-container">
     <div className="card-wrapper">
       {!previewURL || !result ? (
         <div className={`drop-card ${isDragActive ? "active" : ""}`} {...getRootProps()}>
@@ -156,13 +156,32 @@ function MainApp() {
           <button className="reset-button" onClick={reset}>Reset</button>
         </div>)}
     </div>
+
     <div className="google-image-search-section">
       <button className="google-image-search-button" onClick={handleReverseImageSearch} disabled={isSearching}>
         {isSearching ? "Searching..." : "Reverse Image Search"}
       </button>
+
+      {similarImages.length > 0 && (
+        <div className="similar-images-container">
+          <h3>Similar Images Found</h3>
+          <div className="image-scroll-gallery">
+            {similarImages.map((img, idx) => (
+              <div key={idx} className="similar-image-card">
+                <a href={img.source_url} target="_blank" rel="noopener noreferrer">
+                  <img src={img.url} alt={`Similar ${idx}`} className="similar-image" />
+                </a>
+                <div className="image-meta">
+                  <span>{new URL(img.source_url).hostname.replace("www.", "")}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
     
-    </>
+    </div>
   );
 }
 

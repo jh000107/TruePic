@@ -21,18 +21,18 @@ function Home() {
         <div className="steps-container">
           <div className="step-card">
             <h3>Step 1</h3>
-            <p>Upload an image or paste a URL to begin.</p>
-            <img src="/sample-upload.png" alt="Upload step" />
+            <p>Upload an image to begin.</p>
+            <img src="/upload_image.png" alt="Upload step" />
           </div>
           <div className="step-card">
             <h3>Step 2</h3>
-            <p>We analyze the image using our AI model.</p>
-            <img src="/sample-analyze.png" alt="Analyze step" />
+            <p>View your result.</p>
+            <img src="/result.png" alt="Analyze step" />
           </div>
           <div className="step-card">
             <h3>Step 3</h3>
-            <p>View your result and see how confident we are.</p>
-            <img src="/sample-result.png" alt="Result step" />
+            <p>Find similar images.</p>
+            <img src="/similar_images.png" alt="Google image search step" />
           </div>
         </div>
       </section>

@@ -30,18 +30,3 @@ h1, h2, h3 {
   color: #111;
 }
 
-button {
-  border-radius: 8px;
-  border: none;
-  padding: 0.7rem 1.4rem;
-  font-size: 1rem;
-  font-family: inherit;
-  background-color: #4a90e2;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.25s ease;
-}
-
-button:hover {
-  background-color: #357ab8;
-}

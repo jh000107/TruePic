@@ -68,16 +68,24 @@
 }
 
 .step-card p {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #555;
   margin-bottom: 1rem;
 }
 
 .step-card img {
   max-width: 100%;
-  border-radius: 8px;
-  background: #f0f0f0;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  height: 140px;
+  object-fit: cover;
 }
+
+.step-card:hover {
+  transform: translateY(-4px);
+}
+
 
 .home-footer {
   text-align: center;
