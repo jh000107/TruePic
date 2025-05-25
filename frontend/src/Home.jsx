@@ -4,6 +4,14 @@ import './Home.css';
 function Home() {
   return (
     <div className="home-wrapper">
+      <nav className="home-nav-bar">
+        <Link to="/" className="logo">TruePic</Link>
+        <div className="nav-links">
+          <Link to="/login" className="nav-button">Login</Link>
+          <Link to="/register" className="nav-button">Register</Link>
+        </div>
+      </nav>
+
       <header className="hero-section">
         <h2>
             Spot the Fake. <br />Know What's Real.

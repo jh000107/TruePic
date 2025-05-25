@@ -17,16 +17,4 @@ body {
   min-height: 100vh;
 }
 
-a {
-  color: #4a90e2;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #357ab8;
-}
-
-h1, h2, h3 {
-  color: #111;
-}
 
