@@ -1,0 +1,99 @@
+.register-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+  background: linear-gradient(to bottom, #f8f9fc, #eaeef3);
+  min-height: 80vh;
+}
+
+.register-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+}
+
+.register-card form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;        /* ✅ center inputs inside form */
+  width: 100%;
+}
+
+.register-card h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #111;
+}
+
+.register-card input[type="email"],
+.register-card input[type="password"] {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  box-sizing: border-box; /* Ensures padding and border are included in the width */
+}
+
+.register-btn {
+  background-color: #4a90e2;
+  color: white;
+  width: 100%;
+  max-width: 300px;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.register-btn:hover {
+  background-color: #357ab8;
+}
+
+.divider {
+  margin: 1.5rem 0;
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.google-btn img {
+  width: 35px;
+  height: 35px;
+}
+
+.bottom-text {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 1rem;
+}
+
+.bottom-text a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+.bottom-text a:hover {
+  text-decoration: underline;
+}

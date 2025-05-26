@@ -5,43 +5,6 @@
   min-height: 100vh;
 }
 
-.home-nav-bar {
-  position: static;     /* ✅ Prevent sticky behavior */
-  padding: 1rem 12rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: #111;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.nav-button {
-  background: none;
-  font-size: 0.9rem;
-  border: 1px solid #4a90e2;
-  padding: 0.4rem 1rem;
-  border-radius: 6px;
-  text-decoration: none;
-  color: #4a90e2;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.nav-button:hover {
-  background-color: #4a90e2;
-  color: white;
-}
-
 .hero-section {
   text-align: center;
 }
