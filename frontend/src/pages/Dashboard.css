@@ -1,0 +1,74 @@
+/* --- Navbar Styles --- */
+.nav-bar.dashboard {
+  width: 100%;
+  padding: 0.75rem 7rem;
+  background: #f8f9fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #111;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-button {
+  background: none;
+  font-size: 0.9rem;
+  border: 1px solid #4a90e2;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #4a90e2;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #4a90e2;
+  color: white;
+}
+
+/* --- Dashboard Content Styles --- */
+.dashboard-wrapper {
+  padding: 4rem 7rem;
+  text-align: center;
+}
+
+.dashboard-wrapper h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.dashboard-wrapper p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background-color: #4a90e2;
+  color: white;
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #357ab7;
+}
