@@ -20,7 +20,7 @@ function Dashboard() {
     <>
       {/* Dashboard Navbar */}
       <div className="nav-bar dashboard">
-        <a href="/" className="logo">TruePic</a>
+        <Link to="/" className="logo">TruePic</Link>
         <div className="nav-links">
           <Link to="/profile" className="profile-button">
             <img

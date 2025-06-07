@@ -31,10 +31,12 @@
 .nav-links {
   display: flex;
   gap: 1rem;
+  align-items: center;
 }
 
 .nav-button {
   background: none;
+  height: 40px;
   font-size: 0.9rem;
   border: 1px solid #4a90e2;
   padding: 0.4rem 1rem;
@@ -44,6 +46,11 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+
+  line-height: 1;
+  display: inline-flex; /* forces Link to behave like button */
+  align-items: center;  /* centers text vertically */
+  box-sizing: border-box; /* ensures consistent box model */
 }
 
 .nav-button:hover {

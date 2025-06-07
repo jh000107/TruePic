@@ -2,7 +2,12 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 import Navbar from "../components/Navbar";
 
+import { auth } from '../firebase'; // ADD THIS LINE
+
 function Home() {
+  const user = auth.currentUser;
+
+
   return (
     <>
     <Navbar variant="home" />
@@ -14,7 +19,7 @@ function Home() {
         <p>
           AI Detection at Your Fingertips. Don’t let AI-generated images fool you.<br /> <strong>TruePic</strong> delivers reliable results instantly.
         </p>
-        <Link to="/app">
+        <Link to={user ? "/app" : "/login"}> 
           <button className="cta-button">Try It Now</button>
         </Link>
       </header>
