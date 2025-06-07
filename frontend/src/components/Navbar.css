@@ -1,6 +1,7 @@
 .nav-bar.home {
   width: 100%;
-  padding: 1rem 7rem 2rem;
+  height: 70px;
+  padding: 0 7rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,7 +10,8 @@
 
 .nav-bar.login {
   width: 100%;
-  padding: 0.5rem 7rem;
+  height: 70px;
+  padding: 0 7rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,6 +22,7 @@
 
 .logo {
   font-size: 1.5rem;
+  height: 40px;
   font-weight: bold;
   text-decoration: none;
   color: #111;
@@ -39,6 +42,7 @@
   text-decoration: none;
   color: #4a90e2;
   font-weight: 500;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 

@@ -22,6 +22,13 @@ function Dashboard() {
       <div className="nav-bar dashboard">
         <a href="/" className="logo">TruePic</a>
         <div className="nav-links">
+          <Link to="/profile" className="profile-button">
+            <img
+              src={'/default-avatar.png'}
+              alt='Profile'
+              className="profile-avatar"
+            />
+          </Link>
           <button className="nav-button" onClick={handleLogout}>
             Logout
           </button>

@@ -1,17 +1,43 @@
 /* --- Navbar Styles --- */
 .nav-bar.dashboard {
   width: 100%;
-  padding: 0.75rem 7rem;
-  background: #f8f9fa;
+  height: 70px;
+  padding: 0 7rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ccc;
+  background: white;
+  border-bottom: 1px solid #ddd;
   box-sizing: border-box;
+}
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Makes it circular */
+  object-fit: cover; /* Ensures the image fills the circle */
+  cursor: pointer;}
+
+.profile-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #4a90e2;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile-button:hover {
+  background-color: #f0f8ff;
 }
 
 .logo {
   font-size: 1.5rem;
+  height: 40px;
   font-weight: bold;
   text-decoration: none;
   color: #111;
@@ -19,11 +45,13 @@
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
 .nav-button {
   background: none;
+  height: 40px;
   font-size: 0.9rem;
   border: 1px solid #4a90e2;
   padding: 0.4rem 1rem;
