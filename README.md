@@ -26,10 +26,15 @@ This project aims to promote transparency in online visual conent and help comba
 ## Features
 
 ✅ Upload images via drag & drop
+
 ✅ AI-powered image authenticity detection
+
 ✅ Clean and intuitive web interface
+
 ✅ Real-time inference powered by backend ML model
+
 ✅ Dynamic result display with confidence visualization
+
 ✅ User authentication (via Firebase)
 
 ## ML Model Architecture
